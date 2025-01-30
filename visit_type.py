@@ -28,7 +28,7 @@ st.markdown('''
     </style>
 ''', unsafe_allow_html=True)
 
-st.markdown('<h1 class="main-title">EXPECTED CLAIMS VIEW</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-title">VISIT DETAILS VIEW</h1>', unsafe_allow_html=True)
 
 
 filepath_visits = "Visit Data 2024.xlsx"
@@ -97,6 +97,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 
+df["Client Name"] = df["Client Name"].str.upper()
 
 
 
@@ -329,26 +330,26 @@ if not df.empty:
 
 
     # Calculate key metrics
-    st.markdown('<h2 class="custom-subheader">For all Sales</h2>', unsafe_allow_html=True)    
+    st.markdown('<h2 class="custom-subheader">For all Visits</h2>', unsafe_allow_html=True)    
 
     cols1,cols2, cols3 = st.columns(3)
 
     display_metric(cols1, "Total Clients", total_clients)
-    display_metric(cols2, "Total Expected Claims", total_visits)
-    display_metric(cols3, "Total Expected Claim Amount", F"{total_amount:,.0F} M")
-    display_metric(cols1, "Average Expected Claim Amount Per Client", F"{average_amount:,.1F} M")
+    display_metric(cols2, "Total Visits", total_visits)
+    display_metric(cols3, "Total Visit Amount", F"{total_amount:,.0F} M")
+    display_metric(cols1, "Average Visit Amount Per Client", F"{average_amount:,.1F} M")
     display_metric(cols2, "Percentage Closed Visit", F"{total_closed_per:,.0F} %")
     display_metric(cols3, "Percentage Open Visit", F"{total_open_per:,.0F} %")
 
     st.markdown('<h2 class="custom-subheader">For Visit Type</h2>', unsafe_allow_html=True)    
   
     cols1,cols2, cols3 = st.columns(3)
-    display_metric(cols1, "Expected Claim Amount", F"{total_amount:,.0F} M")
-    display_metric(cols2, "Expected Claim Amount for Outpatient", f"{total_out:,.0f} M")
-    display_metric(cols3, "Expected Claim Amount for Dental", f"{total_dental:,.0f} M")
-    display_metric(cols1, "Expected Claim Amount for Optical", f"{total_optical:,.0f} M")
-    display_metric(cols2, "Expected Claim Amount for Inpatient", f"{total_in:,.0f} M")
-    display_metric(cols3, "Expected Claim Amount for Wellness", f"{total_wellness:,.0f} M")
+    display_metric(cols1, "Total Visit Amount", F"{total_amount:,.0F} M")
+    display_metric(cols2, "Total Visit Amount for Outpatient", f"{total_out:,.0f} M")
+    display_metric(cols3, "Total Visit Amount for Dental", f"{total_dental:,.0f} M")
+    display_metric(cols1, "Total Visit Amount for Optical", f"{total_optical:,.0f} M")
+    display_metric(cols2, "Total Visit Amount for Inpatient", f"{total_in:,.0f} M")
+    display_metric(cols3, "Total Visit Amount for Wellness", f"{total_wellness:,.0f} M")
 
     cols1, cols2 = st.columns(2)
 
@@ -386,10 +387,10 @@ if not df.empty:
         fig2.update_xaxes(title_text="Visit Date", tickangle=45)  # Rotate x-axis labels to 45 degrees for better readability
 
         # Set y-axes titles
-        fig2.update_yaxes(title_text="<b>Number Of Expected Claims</b>", secondary_y=False)
-        fig2.update_yaxes(title_text="<b>Total Expected Claim Amount</b>", secondary_y=True)
+        fig2.update_yaxes(title_text="<b>Number Of Visits</b>", secondary_y=False)
+        fig2.update_yaxes(title_text="<b>Total Visit Amount</b>", secondary_y=True)
 
-        st.markdown('<h3 class="custom-subheader">Number of Expected Claim and Expected Claim Amount Over Time</h3>', unsafe_allow_html=True)
+        st.markdown('<h3 class="custom-subheader">Number of Visits and Visit Amount Over Time</h3>', unsafe_allow_html=True)
 
         st.plotly_chart(fig2, use_container_width=True)
 
@@ -418,7 +419,7 @@ if not df.empty:
         fig_yearly_avg_premium.update_layout(
             barmode='group',  # Grouped bar chart
             xaxis_title="Year",
-            yaxis_title="Average Expected Claim Amount",
+            yaxis_title="Average Visit Amount",
             font=dict(color='Black'),
             xaxis=dict(title_font=dict(size=14), tickfont=dict(size=12)),
             yaxis=dict(title_font=dict(size=14), tickfont=dict(size=12)),
@@ -427,7 +428,7 @@ if not df.empty:
         )
 
         # Display the chart in Streamlit
-        st.markdown('<h3 class="custom-subheader">Average Yearly Expected Claim Amount by Product per Employer Group</h3>', unsafe_allow_html=True)
+        st.markdown('<h3 class="custom-subheader">Average Yearly Visits Amount by Product per Employer Group</h3>', unsafe_allow_html=True)
         st.plotly_chart(fig_yearly_avg_premium, use_container_width=True)
 
 
@@ -462,7 +463,7 @@ if not df.empty:
         fig_monthly_premium.update_layout(
                 barmode='group',  # Grouped bar chart
                 xaxis_title="Month",
-                yaxis_title="Expected Claim Amount",
+                yaxis_title="Visit Amount",
                 font=dict(color='Black'),
                 xaxis=dict(title_font=dict(size=14), tickfont=dict(size=12)),
                 yaxis=dict(title_font=dict(size=14), tickfont=dict(size=12)),
@@ -470,7 +471,7 @@ if not df.empty:
             )
 
             # Display the Total Amount sum chart in Streamlit
-        st.markdown('<h3 class="custom-subheader">Avearge Monthly Expected Claim and Expected Claim Amount by Visit Type</h3>', unsafe_allow_html=True)
+        st.markdown('<h3 class="custom-subheader">Avearge Monthly Visits and Expected Visit Amount by Visit Type</h3>', unsafe_allow_html=True)
         st.plotly_chart(fig_monthly_premium, use_container_width=True)
 
     # Group by Client Name and Client Segment, then sum the Total Amount
@@ -504,7 +505,7 @@ if not df.empty:
 
         fig.update_layout(
                     barmode='stack',
-                    yaxis_title="Expected Claim Amount",
+                    yaxis_title="Visit Amount",
                     xaxis_title="Client Name",
                     font=dict(color='Black'),
                     xaxis=dict(title_font=dict(size=14), tickfont=dict(size=12)),
@@ -513,7 +514,7 @@ if not df.empty:
                 )
 
                 # Display the chart in Streamlit
-        st.markdown('<h3 class="custom-subheader">Top 10 Clients by Expected Claim Amount and Visit Type</h3>', unsafe_allow_html=True)
+        st.markdown('<h3 class="custom-subheader">Top 10 Clients by Visit Amount and Visit Type</h3>', unsafe_allow_html=True)
         st.plotly_chart(fig, use_container_width=True)
 
 
@@ -526,7 +527,7 @@ if not df.empty:
 
     with cls1:
         # Display the header
-        st.markdown('<h3 class="custom-subheader">Total Expected Claim Amount by Visit Type</h3>', unsafe_allow_html=True)
+        st.markdown('<h3 class="custom-subheader">Total Visit Amount by Visit Type</h3>', unsafe_allow_html=True)
 
 
         # Create a donut chart
@@ -543,7 +544,7 @@ if not df.empty:
 
     with cls2:
         # Display the header
-        st.markdown('<h3 class="custom-subheader">Total Expected Claim Amount by Visit Status</h3>', unsafe_allow_html=True)
+        st.markdown('<h3 class="custom-subheader">Total Visit Amount by Visit Status</h3>', unsafe_allow_html=True)
 
 
         # Create a donut chart
@@ -579,7 +580,7 @@ if not df.empty:
             ))
 
             fig.update_layout(
-                yaxis_title="Expected Claim Amount",
+                yaxis_title="Visit Amount",
                 xaxis_title="Provider Name",
                 font=dict(color='Black'),
                 xaxis=dict(title_font=dict(size=14), tickfont=dict(size=12)),
@@ -589,7 +590,7 @@ if not df.empty:
 
 
             # Display the chart in Streamlit
-            st.markdown('<h3 class="custom-subheader">Top 10 Popular Service Providers by Expected Claim Amount</h3>', unsafe_allow_html=True)
+            st.markdown('<h3 class="custom-subheader">Top 10 Popular Service Providers by Visit Amount</h3>', unsafe_allow_html=True)
             st.plotly_chart(fig, use_container_width=True)
 
     # Group by Client Name and sum the Total Amount
@@ -612,7 +613,7 @@ if not df.empty:
             ))
 
             fig.update_layout(
-                yaxis_title="Expected Claim Amount",
+                yaxis_title="Visit Amount",
                 xaxis_title="Client Name",
                 font=dict(color='Black'),
                 xaxis=dict(title_font=dict(size=14), tickfont=dict(size=12)),
@@ -622,6 +623,6 @@ if not df.empty:
 
 
             # Display the chart in Streamlit
-            st.markdown('<h3 class="custom-subheader">Top 10 Clients by Expected Claim Amount</h3>', unsafe_allow_html=True)
+            st.markdown('<h3 class="custom-subheader">Top 10 Clients by Visit Amount</h3>', unsafe_allow_html=True)
             st.plotly_chart(fig, use_container_width=True)
 

@@ -97,6 +97,9 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 
+df["Client Name"] = df["Client Name"].str.upper()
+
+
 # Convert 'Date of Birth' to datetime
 df['Date of Birth'] = pd.to_datetime(df['Date of Birth'])
 
