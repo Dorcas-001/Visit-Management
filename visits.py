@@ -103,7 +103,7 @@ def display_dashboard(username):
 
     if page == "Home":
         st.markdown('<h1 class="main-title">EDEN CARE VISIT MANAGEMENT DASHBOARD</h1>', unsafe_allow_html=True)
-        st.image("pexels-thirdman-5327647.jpg", caption='Eden Care Medical', use_column_width=True)
+        st.image("4973763.jpg", caption='Eden Care Medical', use_column_width=True)
         st.markdown('<h2 class="subheader">Welcome to the Eden Care Visit Management Dashboard</h2>', unsafe_allow_html=True)
         
         # Introduction
