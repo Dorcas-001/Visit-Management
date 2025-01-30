@@ -374,7 +374,7 @@ if not df.empty:
 
 
     # Calculate key metrics
-    st.markdown('<h2 class="custom-subheader">For all Sales</h2>', unsafe_allow_html=True)    
+    st.markdown('<h2 class="custom-subheader">For all Visit</h2>', unsafe_allow_html=True)    
 
     cols1,cols2, cols3 = st.columns(3)
 
