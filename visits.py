@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 from datetime import datetime
 
 st.set_page_config(
-    page_title="Eden Care Sales Dashboard",
+    page_title="Eden Care Visit Dashboard",
     page_icon=Image.open("logo.png"),
     layout="wide",
     initial_sidebar_state="expanded"
@@ -107,7 +107,8 @@ def display_dashboard(username):
         st.markdown('<h2 class="subheader">Welcome to the Eden Care Visit Management Dashboard</h2>', unsafe_allow_html=True)
         
         # Introduction
-        st.markdown('<div class="text">Welcome to the Sales Dashboard! This comprehensive tool provides a clear and insightful overview of our sales performance across three key areas: <strong>Closed Sales, Lives, and Premium. The <strong>Closed Sales dashboard</strong> details successful deals and revenue generated, helping identify trends and high-performing teams. The <strong>Lives Dashboard</strong> tracks the number of individuals covered under our plans, offering insights into our market reach and effectiveness. </div>', unsafe_allow_html=True)
+        st.markdown('<div class="text">Welcome to the Eden Care Visit Management Dashboard! This comprehensive tool provides a clear and insightful overview of our visit management performance across several key areas: <strong>Visit Details, Visit Types, and Visit Member Details</strong>. The <strong>Visit Details View</strong> provides detailed information about each visit, helping to understand the purpose and outcomes of visits. The <strong>Visit Type View</strong> categorizes visits by type, offering insights into common visit purposes and trends. The <strong>Visit Member Details View</strong> tracks the details of members involved in visits, giving a comprehensive view of member interactions.</div>', unsafe_allow_html=True)
+
         st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
 
         # User Instructions
