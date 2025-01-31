@@ -143,6 +143,7 @@ year = st.sidebar.multiselect("Select Year", options=sorted(df['Year'].dropna().
 quarter = st.sidebar.multiselect("Select Quarter", options=sorted(df['Quarter'].dropna().unique()))
 month = st.sidebar.multiselect("Select Month", options=sorted_months)
 age = st.sidebar.multiselect("Select Age Range", options=sorted(df['Age Range'].dropna().unique()))
+gender = st.sidebar.multiselect("Select Client Gender", options=df['Gender'].unique())
 type = st.sidebar.multiselect("Select Visit Type", options=df['Visit Type'].unique())
 status = st.sidebar.multiselect("Select Visit Status", options=df['Visit Status'].unique())
 client_name = st.sidebar.multiselect("Select Client Name", options=sorted(df['Client Name'].dropna().unique()))
@@ -158,6 +159,8 @@ if 'Quarter' in df.columns and quarter:
     df = df[df['Quarter'].isin(quarter)]
 if 'Age Range' in df.columns and age:
     df = df[df['Age Range'].isin(age)]
+if 'Gender' in df.columns and gender:
+    df = df[df['Gender'].isin(gender)]
 if 'Visit Type' in df.columns and type:
     df = df[df['Visit Type'].isin(type)]
 if 'Visit Status' in df.columns and status:
