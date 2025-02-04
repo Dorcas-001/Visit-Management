@@ -262,11 +262,6 @@ if not df.empty:
 
 
 
-
-
-
-
-
     # Create 4-column layout for metric cards# Define CSS for the styled boxes and tooltips
     st.markdown("""
         <style>
