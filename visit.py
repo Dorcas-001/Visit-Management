@@ -321,9 +321,9 @@ if not df.empty:
     cols1,cols2, cols3 = st.columns(3)
 
     display_metric(cols1, "Total Clients", total_clients)
-    display_metric(cols2, "Total Expected Claims", total_visits)
-    display_metric(cols3, "Total Expected Claim Amount", F"{total_amount:,.0F} M")
-    display_metric(cols1, "Average Expected Claim Amount Per Client", F"{average_amount:,.1F} M")
+    display_metric(cols2, "Total Visits", total_visits)
+    display_metric(cols3, "Total Visit Amount", F"{total_amount:,.0F} M")
+    display_metric(cols1, "Average Visit Amount Per Client", F"{average_amount:,.1F} M")
     display_metric(cols2, "Percentage Closed Visit", F"{total_closed_per:,.0F} %")
     display_metric(cols3, "Percentage Open Visit", F"{total_open_per:,.0F} %")
 
@@ -493,7 +493,7 @@ if not df.empty:
 
     with col2:
         # Display the header
-        st.markdown('<h3 class="custom-subheader">Total Expected Claim Amount by Visit Status</h3>', unsafe_allow_html=True)
+        st.markdown('<h3 class="custom-subheader">Total Visit Amount by Visit Status</h3>', unsafe_allow_html=True)
 
 
         # Create a donut chart
@@ -548,7 +548,7 @@ if not df.empty:
         )
 
         # Display the chart in Streamlit
-        st.markdown('<h3 class="custom-subheader">Top 10 Providers by Visits & Total Amount</h3>', unsafe_allow_html=True)
+        st.markdown('<h3 class="custom-subheader">Top 10 Providers by Visits & Visit Amount</h3>', unsafe_allow_html=True)
         st.plotly_chart(fig_provider, use_container_width=True)
 
 
@@ -592,7 +592,7 @@ if not df.empty:
         )
 
         # Display the chart in Streamlit
-        st.markdown('<h3 class="custom-subheader">Top 10 Clients by Visits & Total Amount</h3>', unsafe_allow_html=True)
+        st.markdown('<h3 class="custom-subheader">Top 10 Clients by Visits & Visit Amount</h3>', unsafe_allow_html=True)
         st.plotly_chart(fig_client, use_container_width=True)
 
 
@@ -647,7 +647,7 @@ if not df.empty:
 
     with cls2:
         # Display the header
-        st.markdown('<h3 class="custom-subheader">Total Expected Claim Amount by Visit Type</h3>', unsafe_allow_html=True)
+        st.markdown('<h3 class="custom-subheader">Total Visit Amount by Visit Type</h3>', unsafe_allow_html=True)
 
 
         # Create a donut chart
